@@ -53,7 +53,7 @@ public class Main{
                 }while(pk.nextInt()!=1);
             }
 
-            Game.start(playerLvl);
+            Game.start(playerLvl,connect);
     }
 
 }

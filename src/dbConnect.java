@@ -66,4 +66,21 @@ public class dbConnect {
 
         return true;
     }
+
+    public String getWord(int level, int random) throws SQLException {
+        String query = "SELECT word FROM words " +
+                "WHERE levelNo = "+level+
+                " LIMIT "+random+","+random+";";
+
+        Statement stmt = con.createStatement();
+        ResultSet resultSet = stmt.executeQuery(query);
+
+        resultSet.next();
+
+        return resultSet.getString(1);
+    }
+
+    public void failed(){
+
+    }
 }
