@@ -43,14 +43,16 @@ public class Main{
                 System.out.println("Enter the choice:\n1. Continue\n" +
                         "2. New Game\n3.Logout");
 
-                if (pk.nextInt() == 2) {
-                    pk.nextLine();
+                int c = pk.nextInt();
+                if (c == 2) {
                     if (!connect.resetPlayer(id)) welcome();
-                } else if (pk.nextInt() == 3) {
-                    pk.nextLine();
+                } else if (c == 3) {
                     logout();
                 }
+
+
             } else {
+
                 do {
                     System.out.println("Enter the choice:\n1. New Game");
                 }while(pk.nextInt()!=1);

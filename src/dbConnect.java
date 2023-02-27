@@ -54,8 +54,8 @@ public class dbConnect {
 
         if(pk.next().equals("n")) return false;
 
-        String query = "UPDATE progress" +
-                "SET level = 1, coins = 100" +
+        String query = "UPDATE progress " +
+                "SET levelNo = 1, coins = 100 " +
                 "WHERE id = '"+id+"';";
         Statement stmt = con.createStatement();
         if(stmt.execute(query))
@@ -81,21 +81,18 @@ public class dbConnect {
         return debitCoins(count, Main.id);
     }
     public int debitCoins(int count, String id) throws SQLException {
-        String query = "update progress set coins = coins - ? where id = ?;";
+        String query = "update progress set coins = coins - '"+count+"' where id = '"+id+"';";
 
-        PreparedStatement statement = con.prepareStatement(query);
-        statement.setInt(1,count);
-        statement.setString(2,id);
-        statement.executeUpdate();
+        Statement statement = con.createStatement();
+        statement.executeUpdate(query);
 
         return getCoins(id);
     }
 
     public int getCoins(String id) throws SQLException{
-        String query = "SELECT coins FROM progress WHERE id = ?";//"update progress set coins = coins - ? where id = '?;";
+        String query = "SELECT coins FROM progress WHERE id = '"+id+"'";//"update progress set coins = coins - ? where id = '?;";
 
-        PreparedStatement statement = con.prepareStatement(query);
-        statement.setString(1,id);
+        Statement statement = con.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
         resultSet.next();
 
@@ -106,12 +103,10 @@ public class dbConnect {
         return creditCoins(count, Main.id);
     }
     public int creditCoins(int count, String id) throws SQLException {
-        String query = "update progress set coins = coins + ? where id = ?;";
+        String query = "update progress set coins = coins + '"+count+"' where id = '"+id+"';";
 
-        PreparedStatement statement = con.prepareStatement(query);
-        statement.setInt(1,count);
-        statement.setString(2,id);
-        statement.executeUpdate();
+        Statement statement = con.createStatement();
+        statement.executeUpdate(query);
 
         return getCoins(id);
     }
@@ -121,12 +116,10 @@ public class dbConnect {
     }
 
     public int levelUpgrade(int count, String id) throws SQLException {
-        String query = "update progress set levelNo = levelNo + ? where id = ?;";
+        String query = "update progress set levelNo = levelNo + '"+count+"' where id = '"+id+"';";
 
-        PreparedStatement statement = con.prepareStatement(query);
-        statement.setInt(1,count);
-        statement.setString(2,id);
-        statement.executeUpdate();
+        Statement statement = con.createStatement();
+        statement.executeUpdate(query);
 
         return getPlayerLvl(id);
     }

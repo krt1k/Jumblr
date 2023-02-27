@@ -61,7 +61,7 @@ public class Game {
     }
 
     public static boolean gameOver(dbConnect connect) throws Exception {
-        if( connect.debitCoins(1) > 0){
+        if( connect.debitCoins(1) <= 0){
             System.out.println("Not enough Coins!\n GAME OVER!!!");
             connect.resetPlayer(Main.id);
             return true;
