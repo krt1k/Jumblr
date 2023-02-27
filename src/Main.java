@@ -41,11 +41,14 @@ public class Main{
             // continue or new game
             if(playerLvl != 1){
                 System.out.println("Enter the choice:\n1. Continue\n" +
-                        "2. New Game");
+                        "2. New Game\n3.Logout");
 
                 if (pk.nextInt() == 2) {
                     pk.nextLine();
                     if (!connect.resetPlayer(id)) welcome();
+                } else if (pk.nextInt() == 3) {
+                    pk.nextLine();
+                    logout();
                 }
             } else {
                 do {
@@ -73,14 +76,15 @@ public class Main{
             cPass = inputStr();
 
             //Check if pass & cPass matches.
-            if(!pass.equals(cPass))
+            if(!pass.equals(cPass)) {
                 System.out.println("Passwords mismatch.. " +
                         "Press y to Re-enter your Password!\n " +
                         "or Press n to exit.");
 
-            if(pk.next().equals("n")){
-                welcome();
-                pk.nextLine();
+                if (pk.next().equals("n")) {
+                    welcome();
+//                    pk.nextLine();
+                }
             }
         }while(!pass.equals(cPass));
 
@@ -91,5 +95,9 @@ public class Main{
 
     public static String inputStr(){
         return pk.nextLine();
+    }
+
+    public static void logout() throws Exception {
+        welcome();
     }
 }

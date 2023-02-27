@@ -4,25 +4,22 @@ import java.util.Scanner;
 public class dbConnect {
     private static Connection con;
     static Scanner pk = new Scanner(System.in);
-    public void getConnection(){
-        try {
+    public void getConnection() throws Exception{
+
 //            Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/jumblr";
             String user = "root";
             String password = "root";
             con = DriverManager.getConnection(url, user, password);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+
     }
 
     public void createUser(String name, String id, String pass) throws SQLException {
 
         String query = "INSERT INTO login (id,name,pass) VALUES ('"+id+"','"+name+"','"+pass+"');";
         Statement st = con.createStatement();
-        if(st.execute(query))
-            System.out.println(id+" user created successfully!\nChoose Login menu and continue...");
+        st.execute(query);
+        System.out.println(id+" user created successfully!\nChoose Login menu and continue...");
 
     }
 
@@ -80,7 +77,57 @@ public class dbConnect {
         return resultSet.getString(1);
     }
 
-    public void failed(){
+    public int debitCoins(int count) throws SQLException {
+        return debitCoins(count, Main.id);
+    }
+    public int debitCoins(int count, String id) throws SQLException {
+        String query = "update progress set coins = coins - ? where id = ?;";
 
+        PreparedStatement statement = con.prepareStatement(query);
+        statement.setInt(1,count);
+        statement.setString(2,id);
+        statement.executeUpdate();
+
+        return getCoins(id);
+    }
+
+    public int getCoins(String id) throws SQLException{
+        String query = "SELECT coins FROM progress WHERE id = ?";//"update progress set coins = coins - ? where id = '?;";
+
+        PreparedStatement statement = con.prepareStatement(query);
+        statement.setString(1,id);
+        ResultSet resultSet = statement.executeQuery(query);
+        resultSet.next();
+
+        return resultSet.getInt(1);
+    }
+
+    public int creditCoins(int count) throws SQLException {
+        return creditCoins(count, Main.id);
+    }
+    public int creditCoins(int count, String id) throws SQLException {
+        String query = "update progress set coins = coins + ? where id = ?;";
+
+        PreparedStatement statement = con.prepareStatement(query);
+        statement.setInt(1,count);
+        statement.setString(2,id);
+        statement.executeUpdate();
+
+        return getCoins(id);
+    }
+
+    public int levelUpgrade(int i) throws SQLException {
+        return levelUpgrade(i,Main.id);
+    }
+
+    public int levelUpgrade(int count, String id) throws SQLException {
+        String query = "update progress set levelNo = levelNo + ? where id = ?;";
+
+        PreparedStatement statement = con.prepareStatement(query);
+        statement.setInt(1,count);
+        statement.setString(2,id);
+        statement.executeUpdate();
+
+        return getPlayerLvl(id);
     }
 }
