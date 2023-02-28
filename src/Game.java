@@ -1,9 +1,8 @@
-import java.sql.SQLException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Game {
+public class Game extends Main{
     static Scanner pk = new Scanner(System.in);
     public static void start(int level, dbConnect connect) throws Exception {
         int random = (int) (Math.random() * 10);
@@ -20,11 +19,11 @@ public class Game {
         String suffled = "";
         do {
             Collections.shuffle(quest);
-            for (Character i : quest) suffled += i;
+            for (Character i : quest) suffled+=i;
         }while(suffled.equals(question));
 
         System.out.println(suffled);
-        System.out.println("Available Coins: "+ connect.getCoins(Main.id));
+        System.out.println("Available Coins: "+ connect.getCoins(id));
         System.out.println("3 attempts left.");
         System.out.println("Type your guessed word: ");
         String answer = pk.nextLine();
@@ -35,11 +34,12 @@ public class Game {
 
             while ((!answer.equals(question)) && (attempt != 0)) {
                 System.out.println("Retry. Wrong answer!");
-                System.out.println("1 Coin Debited..");
-                System.out.println("Available Coins: " + connect.getCoins(Main.id));
+                System.out.println("3 Coins Debited..");
+                connect.debitCoins(3);
+                System.out.println("Available Coins: " + connect.getCoins(id));
                 System.out.println(attempt + " attempts left.");
                 if (gameOver(connect)) {
-                    start(connect.getPlayerLvl(Main.id), connect);
+                    start(connect.getPlayerLvl(id), connect);
                 }
 
                 System.out.println("Type your guessed word: ");
@@ -49,8 +49,17 @@ public class Game {
 
             if (attempt <= 0) {
                 System.out.println("5 Coins Debited..");
-                System.out.println("Available Coins: " + connect.getCoins(Main.id));
-
+                System.out.println("Available Coins: " + connect.getCoins(id));
+                
+                //retry to be implemented
+                System.out.println("Press y to Retry or n to exit..");
+                
+                String tempChoice = pk.next(); pk.nextLine();
+                if(tempChoice.equals("y")){
+                    start(connect.getPlayerLvl(id),connect);
+                } else {
+                    loggedIn();
+                }
             }
         } else{
             System.out.println("Correct answer!!\n 2 Coins Credited..");
@@ -63,7 +72,7 @@ public class Game {
     public static boolean gameOver(dbConnect connect) throws Exception {
         if( connect.debitCoins(1) <= 0){
             System.out.println("Not enough Coins!\n GAME OVER!!!");
-            connect.resetPlayer(Main.id);
+            connect.resetPlayer(id);
             return true;
         }
         return false;

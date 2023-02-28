@@ -49,7 +49,7 @@ public class dbConnect {
 
     public boolean resetPlayer(String id) throws SQLException {
         System.out.println("Warning !!\n" +
-                "Your previous levels and coins earned will be resetted.\n" +
+                "Your previous levels and coins earned will be reseted.\n" +
                 "Press y to Confirm or Press n to Go Back.");
 
         if(pk.next().equals("n")) return false;
@@ -59,7 +59,7 @@ public class dbConnect {
                 "WHERE id = '"+id+"';";
         Statement stmt = con.createStatement();
         if(stmt.execute(query))
-            System.out.println("Resetted Successfully!");
+            System.out.println("Reseted Successfully!");
 
         return true;
     }

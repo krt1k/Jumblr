@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main{
@@ -32,20 +33,29 @@ public class Main{
         System.out.println("Enter Password: ");
         pass = inputStr();
 
-        if(!connect.logUser(id,pass)){
+        loggedIn();
+    }
+
+    public static void loggedIn() throws Exception {
+        if (!connect.logUser(id, pass)) {
             System.out.println("Invalid Password or NickName!");
             welcome();
-        } else{
+        } else {
             int playerLvl = connect.getPlayerLvl(id);
 
             // continue or new game
-            if(playerLvl != 1){
+            if (playerLvl != 1) {
                 System.out.println("Enter the choice:\n1. Continue\n" +
                         "2. New Game\n3.Logout");
 
                 int c = pk.nextInt();
-                if (c == 2) {
+                if(c == 1){
+                    Game.start(connect.getPlayerLvl(id),connect);
+
+                }else if (c == 2) {
                     if (!connect.resetPlayer(id)) welcome();
+                    else Game.start(connect.getPlayerLvl(id),connect);
+
                 } else if (c == 3) {
                     logout();
                 }
@@ -53,15 +63,17 @@ public class Main{
 
             } else {
 
-                do {
-                    System.out.println("Enter the choice:\n1. New Game");
-                }while(pk.nextInt()!=1);
-            }
+                System.out.println("Enter the choice:\n1. New Game\n2. Logout");
+                int cc = pk.nextInt();
 
-            Game.start(playerLvl,connect);
+                if(cc == 1)
+                    Game.start(connect.getPlayerLvl(id), connect);
+                else if (cc==2)
+                    logout();
+        }
+
+        }
     }
-
-}
 
     private static void signup() throws Exception {
         System.out.println("Enter your Full Name: ");
