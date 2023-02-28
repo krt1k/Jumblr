@@ -20,6 +20,7 @@ public class dbConnect {
         Statement st = con.createStatement();
         st.execute(query);
         System.out.println(id+" user created successfully!\nChoose Login menu and continue...");
+        System.out.println("----------------------");
 
     }
 
@@ -60,6 +61,7 @@ public class dbConnect {
         Statement stmt = con.createStatement();
         if(stmt.execute(query))
             System.out.println("Reseted Successfully!");
+        System.out.println("----------------------");
 
         return true;
     }
@@ -99,9 +101,9 @@ public class dbConnect {
         return resultSet.getInt(1);
     }
 
-    public int creditCoins(int count) throws SQLException {
+    /*public int creditCoins(int count) throws SQLException {
         return creditCoins(count, Main.id);
-    }
+    }*/
     public int creditCoins(int count, String id) throws SQLException {
         String query = "update progress set coins = coins + '"+count+"' where id = '"+id+"';";
 
@@ -122,5 +124,40 @@ public class dbConnect {
         statement.executeUpdate(query);
 
         return getPlayerLvl(id);
+    }
+
+    public void displayLeaderBoard() throws SQLException {
+        String query = "select login.name, progress.levelNo, progress.coins " +
+                        "from login right join progress " +
+                        "on login.id = progress.id " +
+                        "order by progress.coins desc;";
+
+        Statement statement = con.createStatement();
+        ResultSet rs =  statement.executeQuery(query);
+
+        /*System.out.println("Name\t| Level\t| Coins");
+        System.out.println("-----------------------");
+
+        while(rs.next()){
+            System.out.println(rs.getString(1)+"\t| "+rs.getString(2)+"\t| "+rs.getString(3));
+        }*/
+
+        String topPlayersHeader = "+--------------------+\n" +
+                "|     LEADERBOARD    |\n" +
+                "+--------------------+\n";
+        String topPlayersFooter = "+--------------------+\n";
+        System.out.print(topPlayersHeader);
+        while (rs.next()) {
+            String playerName = rs.getString("name");
+            int playerCoins = rs.getInt("coins");
+            String playerLine = "| " + playerName + "3" +
+                    ": " + playerCoins + " coins";
+            for (int i = playerLine.length(); i < 20; i++) {
+                playerLine += " ";
+            }
+            playerLine += "|\n";
+            System.out.print(playerLine);
+        }
+        System.out.print(topPlayersFooter);
     }
 }

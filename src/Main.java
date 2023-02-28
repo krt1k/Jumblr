@@ -1,4 +1,3 @@
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main{
@@ -16,11 +15,16 @@ public class Main{
 
         System.out.println("Welcome to JUMBLR!");
         System.out.println("Press the number to continue..");
-        System.out.println("1. Login\n2. SignUp");
+        System.out.println("1. Login\n2. SignUp\n3. LeaderBoard");
         int choice = pk.nextInt(); pk.nextLine();
         if(choice == 2){
             signup();
 
+        } else if(choice == 3){
+            connect.displayLeaderBoard();
+            System.out.println("Press b to go back..");
+            if(pk.next().equals("b"))
+                welcome();
         } else{
             login();
             }
@@ -32,6 +36,7 @@ public class Main{
         id = inputStr();
         System.out.println("Enter Password: ");
         pass = inputStr();
+        System.out.println("----------------------");
 
         loggedIn();
     }
@@ -46,29 +51,44 @@ public class Main{
             // continue or new game
             if (playerLvl != 1) {
                 System.out.println("Enter the choice:\n1. Continue\n" +
-                        "2. New Game\n3.Logout");
+                        "2. New Game\n3. LeaderBoard\n4. Logout");
+                System.out.println("----------------------");
 
                 int c = pk.nextInt();
                 if(c == 1){
                     Game.start(connect.getPlayerLvl(id),connect);
 
-                }else if (c == 2) {
+                } else if (c == 2) {
                     if (!connect.resetPlayer(id)) welcome();
                     else Game.start(connect.getPlayerLvl(id),connect);
 
-                } else if (c == 3) {
+                } else if(c == 3){
+                    connect.displayLeaderBoard();
+                    System.out.println("Press b to go back..");
+                    if(pk.next().equals("b"))
+                        loggedIn();
+
+                } else if (c == 4) {
                     logout();
                 }
 
 
             } else {
 
-                System.out.println("Enter the choice:\n1. New Game\n2. Logout");
+                System.out.println("Enter the choice:\n1. New Game\n2. LeaderBoard\n3. Logout");
+                System.out.println("----------------------");
+
                 int cc = pk.nextInt();
 
                 if(cc == 1)
                     Game.start(connect.getPlayerLvl(id), connect);
-                else if (cc==2)
+                else if (cc == 2) {
+                    connect.displayLeaderBoard();
+                    System.out.println("Press b to go back..");
+                    if(pk.next().equals("b"))
+                        loggedIn();
+
+                } else if (cc==3)
                     logout();
         }
 
