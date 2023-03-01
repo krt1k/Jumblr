@@ -13,6 +13,10 @@ public class Main{
     //Welcome Screen
     public static void welcome() throws Exception {
 
+        System.out.println("\n" +
+                "░░█ █░█ █▀▄▀█ █▄▄ █░░ █▀█\n" +
+                "█▄█ █▄█ █░▀░█ █▄█ █▄▄ █▀▄");
+        System.out.println();
         System.out.println("Welcome to JUMBLR!");
         System.out.println("Press the number to continue..");
         System.out.println("1. Login\n2. SignUp\n3. LeaderBoard");
@@ -115,7 +119,7 @@ public class Main{
                         "Press y to Re-enter your Password!\n " +
                         "or Press n to exit.");
 
-                if (pk.next().equals("n")) {
+                if (pk.nextLine().equals("n")) {
                     welcome();
 //                    pk.nextLine();
                 }

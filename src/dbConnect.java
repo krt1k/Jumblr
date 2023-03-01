@@ -53,7 +53,7 @@ public class dbConnect {
                 "Your previous levels and coins earned will be reseted.\n" +
                 "Press y to Confirm or Press n to Go Back.");
 
-        if(pk.next().equals("n")) return false;
+        if(pk.nextLine().equals("n")) return false;
 
         String query = "UPDATE progress " +
                 "SET levelNo = 1, coins = 100 " +
@@ -101,9 +101,9 @@ public class dbConnect {
         return resultSet.getInt(1);
     }
 
-    /*public int creditCoins(int count) throws SQLException {
+    public int creditCoins(int count) throws SQLException {
         return creditCoins(count, Main.id);
-    }*/
+    }
     public int creditCoins(int count, String id) throws SQLException {
         String query = "update progress set coins = coins + '"+count+"' where id = '"+id+"';";
 
@@ -142,21 +142,29 @@ public class dbConnect {
             System.out.println(rs.getString(1)+"\t| "+rs.getString(2)+"\t| "+rs.getString(3));
         }*/
 
-        String topPlayersHeader = "+--------------------+\n" +
-                "|     LEADERBOARD    |\n" +
-                "+--------------------+\n";
-        String topPlayersFooter = "+--------------------+\n";
+        String topPlayersHeader = "+----------------------------------+\n" +
+                "|            LEADERBOARD           |\n" +
+                "+----------------------------------+\n";
+        String topPlayersFooter = "+----------------------------------+\n";
         System.out.print(topPlayersHeader);
-        while (rs.next()) {
+//        while (rs.next()) {
+//            String playerName = rs.getString("name");
+//            int playerCoins = rs.getInt("coins");
+//            String playerLine = "| " + playerName + "" +
+//                    ": " + playerCoins + " coins";
+//            for (int i = playerLine.length(); i < 20; i++) {
+//                playerLine += " ";
+//            }
+//            playerLine += "|\n";
+//            System.out.print(playerLine);
+//        }
+        int i =1;
+        System.out.printf("| %-6s%-20s%6s |\n","S.No", "Name", "Coins");
+        while(rs.next()){
             String playerName = rs.getString("name");
             int playerCoins = rs.getInt("coins");
-            String playerLine = "| " + playerName + "3" +
-                    ": " + playerCoins + " coins";
-            for (int i = playerLine.length(); i < 20; i++) {
-                playerLine += " ";
-            }
-            playerLine += "|\n";
-            System.out.print(playerLine);
+            System.out.printf("| %-6d%-20s%6d |\n",i, playerName, playerCoins);
+            i++;
         }
         System.out.print(topPlayersFooter);
     }

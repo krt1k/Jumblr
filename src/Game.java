@@ -9,7 +9,7 @@ public class Game extends Main{
         String question = connect.getWord(level,random);
 //        String question = pk.next();
         System.out.println("----------------------");
-        System.out.println("Guess the word:");
+        System.out.println("JUMBLED WORDS:");
         System.out.println("Level: "+level);
 
         LinkedList<Character> quest = new LinkedList<>();
@@ -19,14 +19,15 @@ public class Game extends Main{
 
         String suffled = "";
         do {
+            suffled = "";
             Collections.shuffle(quest);
             for (Character i : quest) suffled += i;
         }while(suffled.equals(question));
 
         System.out.println("Available Coins: "+ connect.getCoins(id));
-        System.out.println("----------------------");
         System.out.println("3 attempts left.");
-        System.out.println(suffled);
+        System.out.println("----------------------");
+        System.out.println("Jumbled word: "+suffled);
         System.out.println("Type your guessed word: ");
         String answer = pk.nextLine();
 
@@ -68,8 +69,8 @@ public class Game extends Main{
             }
         } else{
             System.out.println("Correct answer!!\n 2 Coins Credited..");
-            System.out.println("----------------------");
-//            System.out.println("Available Coins: " + connect.creditCoins(2));
+//            System.out.println("----------------------");
+            connect.creditCoins(2);
             start(connect.levelUpgrade(1),connect);
         }
 
