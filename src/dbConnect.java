@@ -73,10 +73,12 @@ public class dbConnect {
 
         Statement stmt = con.createStatement();
         ResultSet resultSet = stmt.executeQuery(query);
+        String str = "";
+        while(resultSet.next())
+            str = resultSet.getString(1);
 
-        resultSet.next();
+        return str;
 
-        return resultSet.getString(1);
     }
 
     public int debitCoins(int count) throws SQLException {
@@ -167,5 +169,24 @@ public class dbConnect {
             i++;
         }
         System.out.print(topPlayersFooter);
+    }
+
+    public static void main(String[] args) throws Exception {
+        dbConnect connect = new dbConnect();
+        connect.getConnection();
+
+        for(int i=0; i<50; i++) {
+            int random = (int) (Math.random() * 20);
+
+            while(random%20 == 0){
+                if (random == 0) {
+                    random++;
+                } else if (random >= 20) {
+                    random %= 20;
+                }
+            }
+
+            System.out.println(connect.getWord(9, random));
+        }
     }
 }

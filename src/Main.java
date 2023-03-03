@@ -13,13 +13,13 @@ public class Main{
     //Welcome Screen
     public static void welcome() throws Exception {
 
-        System.out.println("\n" +
+        System.out.println("\n" +Color.YELLOW+
                 "░░█ █░█ █▀▄▀█ █▄▄ █░░ █▀█\n" +
                 "█▄█ █▄█ █░▀░█ █▄█ █▄▄ █▀▄");
         System.out.println();
-        System.out.println("Welcome to JUMBLR!");
+        System.out.println(Color.RESET+"Welcome to JUMBLR!");
         System.out.println("Press the number to continue..");
-        System.out.println("1. Login\n2. SignUp\n3. LeaderBoard");
+        System.out.println(Color.LIGHT_BLUE+"1. Login\n2. SignUp\n3. LeaderBoard"+Color.RESET);
         int choice = pk.nextInt(); pk.nextLine();
         if(choice == 2){
             signup();
@@ -47,15 +47,15 @@ public class Main{
 
     public static void loggedIn() throws Exception {
         if (!connect.logUser(id, pass)) {
-            System.out.println("Invalid Password or NickName!");
+            System.out.println(Color.RED+"Invalid Password or NickName!"+Color.RESET);
             welcome();
         } else {
             int playerLvl = connect.getPlayerLvl(id);
 
             // continue or new game
             if (playerLvl != 1) {
-                System.out.println("Enter the choice:\n1. Continue\n" +
-                        "2. New Game\n3. LeaderBoard\n4. Logout");
+                System.out.println("Enter the choice:\n"+Color.LIGHT_BLUE+"1. Continue\n" +
+                        "2. New Game\n3. LeaderBoard\n4. Logout"+Color.RESET);
                 System.out.println("----------------------");
 
                 int c = pk.nextInt();
@@ -79,7 +79,7 @@ public class Main{
 
             } else {
 
-                System.out.println("Enter the choice:\n1. New Game\n2. LeaderBoard\n3. Logout");
+                System.out.println(Color.LIGHT_BLUE+"Enter the choice:\n1. New Game\n2. LeaderBoard\n3. Logout"+Color.RESET);
                 System.out.println("----------------------");
 
                 int cc = pk.nextInt();

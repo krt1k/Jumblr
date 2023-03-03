@@ -1,10 +1,10 @@
 public class tes {
     public static void main(String[] args) {
-        String k = "Kishorekarthik P";
-        for (int i = 0; i < k.length(); i++) {
-            System.out.print(k.charAt(i));
+//        String k = "Kishorekarthik P";
+        for (int i = 0; i < 1000; i++) {
+            System.out.print("\rCount: "+ i);
             try {
-                Thread.sleep(350);
+                Thread.sleep(150);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
