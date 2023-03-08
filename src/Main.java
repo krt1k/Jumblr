@@ -102,8 +102,12 @@ public class Main{
     private static void signup() throws Exception {
         System.out.println("Enter your Full Name: ");
         name = inputStr();
-        System.out.println("Enter your Nickname: ");
-        id = inputStr();
+
+        do {
+            System.out.println("Enter your Nickname: ");
+            id = inputStr();
+        } while(connect.ifUserExist(id));
+
 
         String cPass;
         do {

@@ -24,6 +24,20 @@ public class dbConnect {
 
     }
 
+    public boolean ifUserExist(String id) throws SQLException{
+
+        String query = "SELECT * FROM login WHERE id = '"+id+"';";
+        Statement st = con.createStatement();
+        ResultSet resultSet = st.executeQuery(query);
+
+        boolean b = resultSet.next();
+
+        if(b)   System.out.println(Color.RED_BRIGHT+"Nickname not available!"+Color.RESET);
+        else    System.out.println(Color.GREEN_BRIGHT+"Nickname Available!"+Color.RESET);
+
+        return b;
+    }
+
     public boolean logUser(String id, String pass) throws SQLException {
 
         String query = "SELECT * FROM login WHERE id = '"+id+"' AND pass = '"+pass+"';";
@@ -56,7 +70,7 @@ public class dbConnect {
         if(pk.nextLine().equals("n")) return false;
 
         String query = "UPDATE progress " +
-                "SET levelNo = 1, coins = 100 " +
+                "SET levelNo = 1, coins = 20 " +
                 "WHERE id = '"+id+"';";
         Statement stmt = con.createStatement();
         if(stmt.execute(query))
