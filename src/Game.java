@@ -55,7 +55,9 @@ public class Game extends Main{
                 if (gameOver(connect)) {
                     start(connect.getPlayerLvl(id), connect);
                 }
-                System.out.println(shuffled);
+
+                System.out.println("----------------------");
+                System.out.println("Jumbled word: "+Color.CYAN_BOLD+shuffled+Color.RESET);
                 System.out.println("Type your guessed word: ");
                 answer = pk.nextLine();
                 if(answer.equals(question)) correctAnswer(connect);
@@ -65,8 +67,9 @@ public class Game extends Main{
 
             if (attempt <= 0) {
                 System.out.println("----------------------");
-                System.out.println("5 Coins Debited..");
-                System.out.println("Available Coins: " +Color.LIGHT_PINK+ connect.getCoins(id)+ Color.RESET);
+                System.out.println(Color.RED_BRIGHT+"No attempts remaining!");
+                System.out.println("5 Coins Debited.."+Color.RESET);
+                System.out.println("Available Coins: " +Color.LIGHT_PINK+ connect.debitCoins(5)+ Color.RESET);
                 
                 //retry to be implemented
                 System.out.println("Press y to Retry or n to exit..");
@@ -92,7 +95,7 @@ public class Game extends Main{
     }
 
     public static boolean gameOver(dbConnect connect) throws Exception {
-        if( connect.debitCoins(1) <= 0){
+        if( connect.getCoins(id) <= 0){
             System.out.println(Color.RED+"Not enough Coins!\n GAME OVER!!!"+Color.RESET);
             System.out.println("----------------------");
             connect.resetPlayer(id);
