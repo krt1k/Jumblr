@@ -130,6 +130,7 @@ public class Main{
             }
         }while(!pass.equals(cPass));
 
+        System.out.println("----------------------");
         connect.createUser(name,id,pass);
         welcome();
     }

@@ -158,10 +158,10 @@ public class dbConnect {
             System.out.println(rs.getString(1)+"\t| "+rs.getString(2)+"\t| "+rs.getString(3));
         }*/
 
-        String topPlayersHeader = "+----------------------------------+\n" +
-                "|            "+Color.GREEN_BRIGHT+"LEADERBOARD"+Color.RESET+"           |\n" +
-                "+----------------------------------+\n";
-        String topPlayersFooter = "+----------------------------------+\n";
+        String topPlayersHeader = "+--------------------------------------+\n" +
+                "|              "+Color.GREEN_BRIGHT+"LEADERBOARD"+Color.RESET+"             |\n" +
+                "+--------------------------------------+\n";
+        String topPlayersFooter = "+--------------------------------------+\n";
         System.out.print(topPlayersHeader);
 //        while (rs.next()) {
 //            String playerName = rs.getString("name");
@@ -175,11 +175,11 @@ public class dbConnect {
 //            System.out.print(playerLine);
 //        }
         int i =1;
-        System.out.printf("| %-6s  %-20s %6s |\n",Color.LIGHT_PINK+"S.No", "Name", "Coins"+Color.RESET);
+        System.out.printf("| %-6s  | %-20s|  %6s |\n",Color.LIGHT_PINK+"S.No", "Name", "Coins"+Color.RESET);
         while(rs.next()){
             String playerName = rs.getString("name");
             int playerCoins = rs.getInt("coins");
-            System.out.printf("| %-6d%-20s%6d |\n",i, playerName, playerCoins);
+            System.out.printf("| %-6d| %-20s| %6d |\n",i, playerName, playerCoins);
             i++;
         }
         System.out.print(topPlayersFooter);
