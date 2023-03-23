@@ -4,7 +4,15 @@ import java.util.Scanner;
 public class dbConnect {
     private static Connection con;
     static Scanner pk = new Scanner(System.in);
-    public void getConnection() throws Exception{
+
+    public dbConnect() {
+        try {
+            getConnection();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void getConnection() throws Exception{
 
 //            Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/jumblr";
@@ -187,7 +195,7 @@ public class dbConnect {
 
     public static void main(String[] args) throws Exception {
         dbConnect connect = new dbConnect();
-        connect.getConnection();
+        getConnection();
 
         for(int i=0; i<50; i++) {
             int random = (int) (Math.random() * 20);

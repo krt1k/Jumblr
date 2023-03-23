@@ -106,7 +106,7 @@ public class Game extends Main{
 
     public static void main(String[] args) throws Exception {
         dbConnect connect = new dbConnect();
-        connect.getConnection();
+        dbConnect.getConnection();
         start(1, connect);
     }
 }

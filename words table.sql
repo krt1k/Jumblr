@@ -114,162 +114,161 @@ INSERT INTO words (levelNo, word) VALUES
     (8, 'kitchen'),
     (8, 'library');
 
-select * from words;
 -- Level 9 words (7 letters, difficulty: 3.7%)
 INSERT INTO words (levelNo, word) VALUES
-    (9, 'business'),
-    (9, 'computer'),
-    (9, 'dinosaur'),
-    (9, 'eleven'),
-    (9, 'firefly'),
-    (9, 'giraffe'),
-    (9, 'hospital'),
-    (9, 'inquire'),
-    (9, 'journal'),
-    (9, 'kangaroo');
+(9, 'business'),
+(9, 'computer'),
+(9, 'dinosaur'),
+(9, 'eleven'),
+(9, 'firefly'),
+(9, 'giraffe'),
+(9, 'hospital'),
+(9, 'inquire'),
+(9, 'journal'),
+(9, 'kangaroo');
 
 -- Level 10 words (8 letters, difficulty: 4%)
 INSERT INTO words (levelNo, word) VALUES
-    (10, 'champion'),
-    (10, 'delicate'),
-    (10, 'elephant'),
-    (10, 'fantastic'),
-    (10, 'gorgeous'),
-    (10, 'happiness'),
-    (10, 'identify'),
-    (10, 'jubilant'),
-    (10, 'knowledge'),
-    (10, 'lifestyle');
+(10, 'champion'),
+(10, 'delicate'),
+(10, 'elephant'),
+(10, 'fantastic'),
+(10, 'gorgeous'),
+(10, 'happiness'),
+(10, 'identify'),
+(10, 'jubilant'),
+(10, 'knowledge'),
+(10, 'lifestyle');
 
 -- Level 11 words (8 letters, difficulty: 4.5%)
 INSERT INTO words (levelNo, word) VALUES
-    (11, 'beautiful'),
-    (11, 'concerned'),
-    (11, 'destination'),
-    (11, 'enthusiasm'),
-    (11, 'fascinate'),
-    (11, 'government'),
-    (11, 'horoscope'),
-    (11, 'inspector'),
-    (11, 'juxtapose'),
-    (11, 'knowledge');
+(11, 'beautiful'),
+(11, 'concerned'),
+(11, 'destination'),
+(11, 'enthusiasm'),
+(11, 'fascinate'),
+(11, 'government'),
+(11, 'horoscope'),
+(11, 'inspector'),
+(11, 'juxtapose'),
+(11, 'knowledge');
 
 -- Level 12 words (9 letters, difficulty: 5%)
 INSERT INTO words (levelNo, word) VALUES
-    (12, 'absurdity'),
-    (12, 'benevolent'),
-    (12, 'contemplate'),
-    (12, 'determination'),
-    (12, 'eclectic'),
-    (12, 'familiarity'),
-    (12, 'gullibility'),
-    (12, 'hypothesis'),
-    (12, 'independent'),
-    (12, 'juxtapose');
+(12, 'absurdity'),
+(12, 'benevolent'),
+(12, 'contemplate'),
+(12, 'determination'),
+(12, 'eclectic'),
+(12, 'familiarity'),
+(12, 'gullibility'),
+(12, 'hypothesis'),
+(12, 'independent'),
+(12, 'juxtapose');
 
 -- Level 13 words (9 letters, difficulty: 5.5%)
 INSERT INTO words (levelNo, word) VALUES
-    (13, 'bureaucrat'),
-    (13, 'camaraderie'),
-    (13, 'deliberate'),
-    (13, 'elaboration'),
-    (13, 'fascinating'),
-    (13, 'gratifying'),
-    (13, 'hypothetical'),
-    (13, 'inquisitive'),
-    (13, 'juxtaposition'),
-    (13, 'kindergarten');
+(13, 'bureaucrat'),
+(13, 'camaraderie'),
+(13, 'deliberate'),
+(13, 'elaboration'),
+(13, 'fascinating'),
+(13, 'gratifying'),
+(13, 'hypothetical'),
+(13, 'inquisitive'),
+(13, 'juxtaposition'),
+(13, 'kindergarten');
 
 -- Level 14 words (10 letters, difficulty: 6%)
 INSERT INTO words (levelNo, word) VALUES
-    (14, 'accidentally'),
-    (14, 'bureaucracy'),
-    (14, 'corporation'),
-    (14, 'destruction'),
-    (14, 'exhilarating'),
-    (14, 'frustration'),
-    (14, 'grandfather'),
-    (14, 'hypothesis'),
-    (14, 'investigate'),
-    (14, 'juxtapose');
+(14, 'accidentally'),
+(14, 'bureaucracy'),
+(14, 'corporation'),
+(14, 'destruction'),
+(14, 'exhilarating'),
+(14, 'frustration'),
+(14, 'grandfather'),
+(14, 'hypothesis'),
+(14, 'investigate'),
+(14, 'juxtapose');
 
 -- Level 15 words (11 letters, difficulty: 6.5%)
 INSERT INTO words (levelNo, word) VALUES
-    (15, 'accomplished'),
-    (15, 'bureaucratic'),
-    (15, 'disappointed'),
-    (15, 'entertainment'),
-    (15, 'fundamental'),
-    (15, 'hypothesize'),
-    (15, 'independence'),
-    (15, 'juxtaposition'),
-    (15, 'knowledgeable'),
-    (15, 'lexicography');
+(15, 'accomplished'),
+(15, 'bureaucratic'),
+(15, 'disappointed'),
+(15, 'entertainment'),
+(15, 'fundamental'),
+(15, 'hypothesize'),
+(15, 'independence'),
+(15, 'juxtaposition'),
+(15, 'knowledgeable'),
+(15, 'lexicography');
 
 -- Level 16 words (11 letters, difficulty: 7%)
 INSERT INTO words (levelNo, word) VALUES
-    (16, 'authoritative'),
-    (16, 'bureaucratize'),
-    (16, 'circumstance'),
-    (16, 'disappearance'),
-    (16, 'entrepreneur'),
-    (16, 'heterogeneous'),
-    (16, 'improvisation'),
-    (16, 'juxtaposition'),
-    (16, 'kaleidoscope'),
-    (16, 'lexicography');
+(16, 'authoritative'),
+(16, 'bureaucratize'),
+(16, 'circumstance'),
+(16, 'disappearance'),
+(16, 'entrepreneur'),
+(16, 'heterogeneous'),
+(16, 'improvisation'),
+(16, 'juxtaposition'),
+(16, 'kaleidoscope'),
+(16, 'lexicography');
 
 -- Level 17 words (12 letters, difficulty: 7.5%)
 INSERT INTO words (levelNo, word) VALUES
-    (17, 'acknowledgment'),
-    (17, 'bureaucratical'),
-    (17, 'circumlocution'),
-    (17, 'disappointment'),
-    (17, 'entrepreneurial'),
-    (17, 'heterosexuality'),
-    (17, 'impressionable'),
-    (17, 'juxtapositions'),
-    (17, 'knowledgeable'),
-    (17, 'lexicographers');
+(17, 'acknowledgment'),
+(17, 'bureaucratical'),
+(17, 'circumlocution'),
+(17, 'disappointment'),
+(17, 'entrepreneurial'),
+(17, 'heterosexuality'),
+(17, 'impressionable'),
+(17, 'juxtapositions'),
+(17, 'knowledgeable'),
+(17, 'lexicographers');
 
 -- Level 18 words (12 letters, difficulty: 8%)
 INSERT INTO words (levelNo, word) VALUES
-    (18, 'accommodation'),
-    (18, 'bureaucratized'),
-    (18, 'circumspection'),
-    (18, 'disapprobation'),
-    (18, 'extravagantly'),
-    (18, 'hypersensitive'),
-    (18, 'impracticable'),
-    (18, 'juxtapositions'),
-    (18, 'knowledgeably'),
-    (18, 'lexicographic');
+(18, 'accommodation'),
+(18, 'bureaucratized'),
+(18, 'circumspection'),
+(18, 'disapprobation'),
+(18, 'extravagantly'),
+(18, 'hypersensitive'),
+(18, 'impracticable'),
+(18, 'juxtapositions'),
+(18, 'knowledgeably'),
+(18, 'lexicographic');
 
 -- Level 19 words (13 letters, difficulty: 8.5%)
 INSERT INTO words (levelNo, word) VALUES
-    (19, 'accomplishment'),
-    (19, 'bureaucratised'),
-    (19, 'circumnavigate'),
-    (19, 'disapprovingly'),
-    (19, 'extraordinarily'),
-    (19, 'hyperventilate'),
-    (19, 'improvisations'),
-    (19, 'juxtapositional'),
-    (19, 'knowledgeables'),
-    (19, 'lexicographical');
+(19, 'accomplishment'),
+(19, 'bureaucratised'),
+(19, 'circumnavigate'),
+(19, 'disapprovingly'),
+(19, 'extraordinarily'),
+(19, 'hyperventilate'),
+(19, 'improvisations'),
+(19, 'juxtapositional'),
+(19, 'knowledgeables'),
+(19, 'lexicographical');
 
 -- Level 20 words (13 letters, difficulty: 9%)
 INSERT INTO words (levelNo, word) VALUES
-    (20, 'accountability'),
-    (20, 'bureaucratizing'),
-    (20, 'circumambulated'),
-    (20, 'discombobulated'),
-    (20, 'extracurricular'),
-    (20, 'hypervigilance'),
-    (20, 'impressionistic'),
-    (20, 'juxtapositioning'),
-    (20, 'knowledgeability'),
-    (20, 'lexicographically');
-    
-    
+(20, 'accountability'),
+(20, 'bureaucratizing'),
+(20, 'circumambulated'),
+(20, 'discombobulated'),
+(20, 'extracurricular'),
+(20, 'hypervigilance'),
+(20, 'impressionistic'),
+(20, 'juxtapositioning'),
+(20, 'knowledgeability'),
+(20, 'lexicographically');
+
+
 select * from words;

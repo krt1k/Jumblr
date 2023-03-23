@@ -6,7 +6,7 @@ public class Main{
     static Scanner pk = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
         //Need to provide db connection...
-        connect.getConnection();
+        dbConnect.getConnection();
         welcome();
     }
 
