@@ -6,7 +6,7 @@ public class Main{
     static Scanner pk = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
         //Need to provide db connection...
-        dbConnect.getConnection();
+//        dbConnect.getConnection();
         welcome();
     }
 
@@ -60,11 +60,11 @@ public class Main{
 
                 int c = pk.nextInt();
                 if(c == 1){
-                    Game.start(connect.getPlayerLvl(id),connect);
+                    Game.start(connect.getPlayerLvl(id));
 
                 } else if (c == 2) {
                     if (!connect.resetPlayer(id)) welcome();
-                    else Game.start(connect.getPlayerLvl(id),connect);
+                    else Game.start(connect.getPlayerLvl(id));
 
                 } else if(c == 3){
                     connect.displayLeaderBoard();
@@ -85,7 +85,7 @@ public class Main{
                 int cc = pk.nextInt();
 
                 if(cc == 1)
-                    Game.start(connect.getPlayerLvl(id), connect);
+                    Game.start(connect.getPlayerLvl(id));
                 else if (cc == 2) {
                     connect.displayLeaderBoard();
                     System.out.println("Press b to go back..");

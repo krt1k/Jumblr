@@ -192,23 +192,4 @@ public class dbConnect {
         }
         System.out.print(topPlayersFooter);
     }
-
-    public static void main(String[] args) throws Exception {
-        dbConnect connect = new dbConnect();
-        getConnection();
-
-        for(int i=0; i<50; i++) {
-            int random = (int) (Math.random() * 20);
-
-            while(random%20 == 0){
-                if (random == 0) {
-                    random++;
-                } else if (random >= 20) {
-                    random %= 20;
-                }
-            }
-
-            System.out.println(connect.getWord(9, random));
-        }
-    }
 }

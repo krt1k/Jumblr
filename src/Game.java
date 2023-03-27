@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Game extends Main{
     static Scanner pk = new Scanner(System.in);
-    public static void start(int level, dbConnect connect) throws Exception {
+    public static void start(int level) throws Exception {
         int random = (int) (Math.random() * 20);
 
         while(random%20 == 0){
@@ -53,7 +53,7 @@ public class Game extends Main{
                 System.out.println("Available Coins: " +Color.LIGHT_PINK+ connect.getCoins(id)+Color.RESET);
                 System.out.println(attempt + " attempts left.");
                 if (gameOver(connect)) {
-                    start(connect.getPlayerLvl(id), connect);
+                    start(connect.getPlayerLvl(id));
                 }
 
                 System.out.println("----------------------");
@@ -76,7 +76,7 @@ public class Game extends Main{
                 
                 String tempChoice = pk.next(); pk.nextLine();
                 if(tempChoice.equals("y")){
-                    start(connect.getPlayerLvl(id),connect);
+                    start(connect.getPlayerLvl(id));
                 } else {
                     loggedIn();
                 }
@@ -91,7 +91,7 @@ public class Game extends Main{
         System.out.println(Color.GREEN_BRIGHT+"Correct answer!!\n2 Coins Credited.."+Color.RESET);
 //            System.out.println("----------------------");
         connect.creditCoins(2);
-        start(connect.levelUpgrade(1), connect);
+        start(connect.levelUpgrade(1));
     }
 
     public static boolean gameOver(dbConnect connect) throws Exception {
@@ -102,11 +102,5 @@ public class Game extends Main{
             return true;
         }
         return false;
-    }
-
-    public static void main(String[] args) throws Exception {
-        dbConnect connect = new dbConnect();
-        dbConnect.getConnection();
-        start(1, connect);
     }
 }
