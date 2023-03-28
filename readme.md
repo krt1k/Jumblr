@@ -27,9 +27,13 @@ This project is an English word-based game, where a jumbled English word was giv
 ## Technology Stack
 
 **Programming Language:** JAVA, MySQL 
+
 **Database:** MySQL 
+
 **Driver:** JDBC to connect JAVA and MySQL 
+
 **IDE:** IntelliJ IDEA
+
 
 ## ER Model
 
